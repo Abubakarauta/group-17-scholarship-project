@@ -1,0 +1,94 @@
+{% extends 'base1.html' %}
+
+{% block nav %}{% endblock %}
+
+{% block content %}
+<style>
+.message {
+  width: 100%;
+  display: flex;
+  color: white;
+  padding: 1em 0;
+  font-weight: 900;
+  margin-bottom: 2em;
+  border-radius: 1ch;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  /* border: 2px solid rgba(0, 0, 0, 0.1); */
+}
+
+.message-error {
+  color: red;
+}
+
+.message-success {
+  color: greenyellow;
+}
+
+.message-warning {
+  color: orange;
+}
+
+.message-info {
+  color: coral;
+}
+
+.message-debug {
+  color: brown;
+}
+</style>
+  <section id="contact" class="contact">
+    <div class="row mt-5 justify-content-center" data-aos="fade-up">
+      <div class="col-lg-10 ">
+
+        <form action="{% url 'register' %}" method="POST" role="form" class="">
+          {% csrf_token %}
+          <div class="section-title">
+            <h2>register</h2>
+          </div>
+          
+          <div class="row">
+            {% if messages %}
+              {% for msg  in messages %}
+                <span class="message message-{{msg.tags}}">{{ msg }}</span>
+              {% endfor %}
+            {% endif %}  
+          </div>
+
+          <div class="row">
+         
+
+            <div class="col-md-6 mb-4 form-group">
+              <input type="text" name="first_name" class="form-control" id="name" placeholder="FIRST NAME" required>
+            </div>
+            <div class="col-md-6 mb-4 form-group">
+              <input type="text" name="last_name" class="form-control" id="name" placeholder="LAST NAME" required>
+            </div>
+            <div class="col-md-6 mb-4 form-group">
+              <input type="text" name="username" class="form-control" id="name" placeholder="username" required>
+            </div>
+
+            <div class="col-md-6 mb-4 form-group">
+              <input type="tel" name="phone_number" class="form-control" id="name" placeholder="phone number" required>
+            </div>
+
+            <div class="col-md-6 mb-4 form-group">
+              <input type="email" name="email" class="form-control" id="name" placeholder="email" required>
+            </div>
+            <div class="col-md-6 mb-4 form-group">
+              <input type="password" name="password" class="form-control" id="password" placeholder="password" required>
+            </div>
+            <div class="col-md-6 mb-4 form-group">
+              <input type="password" name="confirm_password" class="form-control" id="confirm_password" placeholder="confirm password" required>
+            </div>
+            <button type="submit" class="btn btn-success m-4" style="background: #1bbd36;">Register</button>
+            <hr>
+            <span>if you have an account, <a href="{% url 'login' %}" class="">login</a></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section><!-- End Contact Section -->
+{% endblock content %}

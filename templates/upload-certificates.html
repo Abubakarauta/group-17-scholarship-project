@@ -1,0 +1,36 @@
+{%extends 'base1.html'%}
+
+{% load static %}
+	{%block content%}
+<body>
+ 
+     
+
+
+    <section id="contact" class="contact">
+   
+        
+        <div class="container ">
+                    <div class="row mt-5 justify-content-center" data-aos="fade-up">
+                        <div class="col-lg-10 ">
+
+                            <form action="{% url 'upload_certificates' %}" method="POST" role="form" class="php-email-form "> {% csrf_token %}
+                                <div class="section-title">
+                                 <h2>UPLOAD CERTIFICATES</h2>
+                                </div>
+                                {{ uc_form.as_table }}
+                                <br/><br/>
+                                <div class="text-center"><button type="submit">Save </button></div>
+                            </form>
+                        </div>    
+                    </div>
+
+               
+           
+        </div>
+    </section><!-- End Contact Section -->
+
+
+</body>
+{%endblock content%}
+
