@@ -1,0 +1,55 @@
+{%extends 'base1.html'%}
+
+{% load static %}
+
+{% block nav %}
+{% endblock %}
+
+{%block content%}
+
+<body>
+
+
+
+
+  <section id="contact" class="contact">
+    <div class="row mt-5 justify-content-center" data-aos="fade-up">
+      <div class="col-lg-10 ">
+
+        <form action="{% url 'login' %}" method="POST" role="form" class="">
+          {% csrf_token %}
+          <div class="section-title">
+            <h2>login</h2>
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <input type="text" name="username" class="form-control" id="name" placeholder="username" required>
+            </div>
+
+            <div class="col-md-6 form-group">
+              <input type="password" name="password" class="form-control" id="name" placeholder="password" required>
+            </div>
+            <button type="submit" class="btn btn-success m-4" style="background: #1bbd36;">Login</button>
+            <hr>
+            <span>if you don't have an account, please <a href="{% url 'register' %}" class="">register</a></span>
+            {% if error %}
+            <h5 style="color: red">{{error|upper}}</h5>
+            {% endif %}
+          </div>
+
+
+
+        </form>
+
+      </div>
+
+
+
+    </div>
+  </section><!-- End Contact Section -->
+
+
+</body>
+{%endblock content%}
