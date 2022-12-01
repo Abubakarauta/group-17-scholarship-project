@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+CSRF_TRUSTED_ORIGINS = ['https://group-17-scholarship-project-production.up.railway.app']
+
 
 # Application definition
 
