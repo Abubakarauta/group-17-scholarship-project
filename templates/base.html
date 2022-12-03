@@ -62,11 +62,12 @@
           <li><a href="{% url 'members' %}">group members</a></li>
           
           <li><a href="{% url 'contact' %}">Contact</a></li>
-{%if user.is_authenticate%}
-          <div class="text-center"><a href="" class="btn-get-started">logout</a></div>
+{%if user.is_authenticated%}
+<div class="text-center"><a href="{% url 'login' %}" class="btn-get-started">login</a></div>
+{% else %}
+<div class="text-center"><a href="" class="btn-get-started">logout</a></div>
 
 {%endif%}
-          <div class="text-center"><a href="{% url 'login' %}" class="btn-get-started">login</a></div>
 
           
           <div class="header-social-links d-flex">
