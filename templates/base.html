@@ -65,9 +65,10 @@
 {%if user.is_authenticated%}
 
 <div class="text-center"><a href="" class="btn-get-started">logout</a></div>
+{%else%}
+<div class="text-center"><a href="{% url 'login' %}" class="btn-get-started">login</a></div>
 
 {%endif%}
-<div class="text-center"><a href="{% url 'login' %}" class="btn-get-started">login</a></div>
 
           
           <div class="header-social-links d-flex">
